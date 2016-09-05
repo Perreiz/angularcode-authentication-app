@@ -1,0 +1,19 @@
+    <div class="modal-header">
+        <h3 class="modal-title">{{subject.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <ul class="list-group">
+            <li ng-repeat="note in subject.notes"  class="list-group-item">
+                <span class="badge">{{note.note | number : 2}}</span>
+                <div class="item-divider">
+                    <h4 ng-class="{nobillable: i.allF == 'no'}" > {{note.name}}</h4>
+                    <div > coef : {{note.coef | number : 2}}</div>
+                </div>
+
+
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    </div>

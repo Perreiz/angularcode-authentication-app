@@ -1,0 +1,89 @@
+.padding-all-10{
+    padding:  10px;
+}
+
+.margin-all-2{
+    margin:  2px;
+}
+
+.round-button {
+    vertical-align: middle;
+    display:block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: #464646;
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: #262626;
+}
+.my-fade-container {
+    position: relative;
+}
+.my-fade-animation.ng-enter
+ {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+.my-fade-animation.ng-enter {
+    z-index: 100;
+    opacity: 0;
+}
+.my-fade-animation.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.my-fade-animation.ng-leave {
+    z-index: 101;
+    opacity: 1;
+}
+.my-fade-animation.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.year-form-button{
+    padding: 10px 50px;
+    margin: 20px;
+}
+
+.animate-show {
+    line-height: 20px;
+    opacity: 1;
+    padding: 10px;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+    transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+    line-height: 0;
+    opacity: 0;
+    padding: 0 10px;
+}
+
+.orangeA {
+    color: orange;
+}
+
+.page-content{
+    margin-top: 2%;
+}
+
+.ind1{
+    font-size:12px;
+}
+
+.right-align{
+    float: right;
+}
+

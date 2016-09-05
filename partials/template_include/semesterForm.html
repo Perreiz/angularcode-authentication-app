@@ -1,0 +1,11 @@
+<label>Do you want UEs or directly put subjects ?</label></br>
+
+<div class="btn-group year-form">
+    <label class="btn btn-primary year-form-button" ng-model="semesterForm" uib-btn-radio="'UEs'">UEs</label>
+    <label class="btn btn-primary year-form-button" ng-model="semesterForm" uib-btn-radio="'Subjects'">Just subjects</label>
+</div>
+
+<div class="animate-show" ng-show="semesterForm != undefined">
+    <label>{{semesterForm}}</label>
+    <button ng-click="addSemesterForm(semesterForm)" class="btn btn-default"> Let's go !</button>
+</div>

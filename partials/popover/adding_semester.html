@@ -1,0 +1,9 @@
+<div class="form-group" >
+
+    <form name="myForm">
+        <label>Name:</label>
+        <input type="text" name="name" ng-model="newSemester.name" class="form-control" required>
+
+        <button ng-click="!myForm.name.$error.required && addSemester(report)" class="btn btn-default center-block ">Add this note</button>
+    </form>
+</div>

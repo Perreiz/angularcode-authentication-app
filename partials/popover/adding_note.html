@@ -1,0 +1,19 @@
+<div class="form-group" ng-init="newNote.coef = 0; newNote.note =0;">
+
+<form name="myForm">
+    <label>Name:</label>
+    <input type="text" name="name" ng-model="newNote.name" class="form-control" required>
+    <label>Coef:</label>
+    <input type="number" ng-model="newNote.coef" name="coef" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.1" required >
+    <span class="help-block " ng-show="!myForm.coef.$valid">
+         Invalid!
+    </span>
+    <label>Note:</label>
+    <input type="number" ng-model="newNote.note" name="note" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required >
+    <span class="help-block " ng-show="!myForm.note.$valid">
+         Invalid!
+    </span>
+    <button ng-click="!myForm.name.$error.required && myForm.coef.$valid && myForm.note.$valid && addNote(subject)" class="btn btn-default center-block ">Add this note</button>
+</form>
+</div>
+

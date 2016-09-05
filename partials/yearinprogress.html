@@ -1,0 +1,46 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a class="orangeA" href="#">Home</a>
+        </li>
+        <li class="active">Year In Progress</li>
+    </ul>
+</div>
+<div class="page-content">
+
+    <div ng-controller="yearInProgressCtrl">
+        <div ng-repeat="report in reports">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 ng-if="report.year.name == undefined"> Add a new Year ! </h2>
+                    <h2>{{report.year.name}}
+                        <span ng-if="report.year.moyenne == 'N/A'" class="badge">N/A</span>
+                        <span class="badge">{{report.year.moyenne | number : 2}}</span>
+                    </h2>
+                    <button ng-if="report.year.changes == true" class="right-align btn btn-default btn-success" ng-click="saveChanges()">Save changes</button>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <div ng-include="templateType"></div>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content"  ng-if="report.year.name == undefined">
+                        <div class="tab-pane fade in active" id="home-pills">
+                            <div class="my-slide-container">
+                                <div class="my-fade-animation" ng-include="template"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<!-- /.page-content -->
