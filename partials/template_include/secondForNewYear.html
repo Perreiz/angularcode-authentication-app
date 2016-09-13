@@ -5,7 +5,6 @@
     <div class="btn-group year-form">
         <label ng-click="addYearForm(yearForm); isCollapsed = false" class="btn btn-primary year-form-button" ng-model="yearForm" uib-btn-radio="'Trimesters'">Trimesters</label>
         <label ng-click="addYearForm(yearForm); isCollapsed = false" class="btn btn-primary year-form-button" ng-model="yearForm" uib-btn-radio="'Semesters'">Semesters</label>
-        <label ng-click="addYearForm(yearForm); isCollapsed = false" class="btn btn-primary year-form-button" ng-model="yearForm" uib-btn-radio="'CompleteYear'">Complete year</label>
     </div>
     <div uib-collapse="isCollapsed" class="my-slide-container">
         <div class="well well-lg my-fade-animation" ng-include="templateYearForm"></div>

@@ -1,0 +1,77 @@
+<ul class="nav nav-pills">
+    <li ng-repeat="semester in report.year.content">
+        <a ng-click="showSemesterContent(semester)" data-toggle="tab">
+            {{semester.name}}
+            <span ng-if="semester.moyenne == 'N/A'" class="badge">{{semester.moyenne}}</span>
+            <span class="badge">{{semester.moyenne | number : 2}}</span>
+
+        </a>
+    </li>
+    <li ng-if="report.year.content.length < 2">
+        <a uib-popover-template="popoverAdding.semester.templateUrl"
+           popover-placement="bottom" popover-title="Add a Semester"
+           popover-is-open="popoverAdding.semester.isOpen"
+        >
+            <span class="glyphicon glyphicon-plus"></span> Add a Semester
+        </a>
+    </li>
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="home-pills">
+        <h4 ng-if="semesterContent == undefined && report.year.content != undefined">Semester core</h4>
+        <p ng-if="semesterContent == undefined && report.year.content != undefined">Click on a semester for show his content.</p>
+        <hr color="blue">
+        <div ng-if="semesterContent != undefined" class=" row ">
+            <div class="col-xs-3">
+                <ul class="nav nav-pills nav-stacked" >
+                    <li ng-repeat="ue in semesterContent.UE" ng-click="showUeContent(ue)" data-toggle="tab2">
+                        <a>
+                            {{ue.name}}
+                            <span ng-if="ue.moyenne == 'N/A'" class="badge">{{ue.moyenne}}</span>
+                            <span class="badge">{{ue.moyenne | number : 2}}</span>
+                            <br/>
+                            <span class="orangeA ind1"> coef : {{ue.coef}}</span>
+                        </a>
+                    </li>
+                    <li class="col-xs-10">
+                        <a uib-popover-template="popoverAdding.ue.templateUrl"
+                           popover-placement="bottom" popover-title="Add an UE"
+                           popover-is-open="popoverAdding.ue.isOpen">
+                            <span class="glyphicon glyphicon-plus"></span> Add an UE
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-9">
+                <span ng-if="ueContent == undefined"> Select an UE for show subject(s).</span>
+                <ul class="list-group">
+                    <div ng-repeat=" subject in ueContent.subject" class="row">
+                        <li  ng-click="subjectDetails(subject)" class="list-group-item col-xs-10 ">
+                            <span ng-if="subject.moyenne == 'N/A'" class="badge">{{subject.moyenne}}</span>
+                            <span class="badge">{{subject.moyenne | number : 2}}</span>
+                            {{subject.name}}
+                            <br/>
+                            <span class="orangeA ind1"> coef : {{subject.coef}}</span>
+                        </li>
+                        <button uib-popover-template="popoverAdding.note.templateUrl"
+                                popover-placement="bottom" popover-title="Add a note"
+                                popover-is-open="subject.isOpen"
+                                type="button"
+                                class='btn btn-default glyphicon glyphicon-plus ' ></button>
+                    </div>
+
+                    <li class="nav nav-pills nav-stacked col-xs-10">
+                        <a  ng-if="ueContent != undefined" uib-popover-template="popoverAdding.subject.templateUrl"
+                            popover-placement="bottom" popover-title="Add a subject"
+                            popover-is-open="popoverAdding.subject.isOpen" >
+                            <span class=" btn glyphicon glyphicon-plus "></span>Add a subject
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

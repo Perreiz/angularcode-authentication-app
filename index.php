@@ -31,11 +31,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" rel="home" title="Dashboard">Dashboard</a>
+            <h1 class="title">My Year App</h1>
           </div>
+          <!--
           <div class="navbar-header col-md-2">
             <a class="navbar-brand" rel="home" title="AngularJS Authentication Tutorial" href="http://www.angularcode.com/user-authentication-using-angularjs-php-mysql">Tutorial</a>
           </div>
+          -->
           <div class="navbar-header col-md-2">
           <span ng-if="authenticated == true" class="row">
             <span class="brand" > Connected as {{name}}</span>

@@ -41,15 +41,13 @@ $app->post('/updateYIP', function() use ($app) {
         $db = new DbHandler();
         $uid = $r->elem->uid;
         $reports = $r->elem->reports;
-        $yip = $db->getOneRecord("UPDATE yip FROM angularcode SET core = '$reports' WHERE uid = '$uid'");
+        $yip = $db->getOneRecord("insert into yip (uid, core) values ('$uid', '$reports') on duplicate key update core='$reports'");
 
-    if ($yip != NULL) {
-            $response['status'] = "success";
-            $response['message'] = 'Data updated';
-    }else {
+
             $response['status'] = "error";
             $response['message'] = 'Failure on update';
-    }
+
+
     echoResponse(200, $response);
 });
 

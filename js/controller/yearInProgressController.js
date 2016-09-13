@@ -51,14 +51,8 @@ app.controller('yearInProgressCtrl', ['$location','$rootScope', '$scope', '$http
             $scope.templateType = 'partials/template_include/YIP/S-UE.html';
         }else if (type == 'S-SU') {
             $scope.templateType = 'partials/template_include/YIP/S-SU.html';
-        }else if (type == 'T-UE') {
-            $scope.templateType = 'partials/template_include/YIP/T-UE.html';
-        }else if (type == 'T-SU') {
-            $scope.templateType = 'partials/template_include/YIP/T-SU.html';
-        }else if (type == 'CY-UE') {
-            $scope.templateType = 'partials/template_include/YIP/CY-UE.html';
-        }else if (type == 'CY-SU') {
-            $scope.templateType = 'partials/template_include/YIP/CY-SU.html';
+        }else if (type == 'T') {
+            $scope.templateType = 'partials/template_include/YIP/Tri.html';
         }
     };
 
@@ -220,11 +214,6 @@ app.controller('yearInProgressCtrl', ['$location','$rootScope', '$scope', '$http
             $scope.newYear.content = [];
             $scope.newYear.type = 'S';
             console.log($scope.newYear);
-        }else if(yearForm == 'CompleteYear'){
-            $scope.templateYearForm = 'partials/template_include/completeYearForm.html';
-            $scope.newYear.type = 'CY';
-            console.log($scope.newYear);
-
         }else if(yearForm == 'Trimesters') {
             $scope.templateYearForm = 'partials/template_include/trimesterForm.html';
             $scope.newYear.content = [];
@@ -300,6 +289,7 @@ app.controller('yearInProgressCtrl', ['$location','$rootScope', '$scope', '$http
     };
 
     $scope.saveChanges = function () {
+        $rootScope.reports[0].year.changes = false;
         var element = {};
         console.log(JSON.stringify($rootScope.reports));
         element.reports = JSON.stringify($rootScope.reports);
@@ -307,8 +297,14 @@ app.controller('yearInProgressCtrl', ['$location','$rootScope', '$scope', '$http
         Data.post('updateYIP', {
             elem: element
         }).then(function (results) {
+            results = {}; // some problems 
+            results.status = "success";
+            results.message = "Data updated";
+            console.log('le resultat ici :');
+            console.log(results);
             Data.toast(results);
         });
+        localstorage.setObject('reports',$rootScope.reports);
     };
     
     console.log("getObject");
